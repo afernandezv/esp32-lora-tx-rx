@@ -1,0 +1,115 @@
+[
+  {
+    "op": "setTextSize",
+    "id": 59,
+    "size": "1"
+  },
+  {
+    "op": "drawRect",
+    "id": 46,
+    "x": "0",
+    "y": "0",
+    "w": "128",
+    "h": "64",
+    "color": "1"
+  },
+  {
+    "op": "drawRect",
+    "id": 47,
+    "x": "0",
+    "y": "0",
+    "w": "128",
+    "h": "13",
+    "color": "1"
+  },
+  {
+    "op": "setCursor",
+    "id": 49,
+    "x": "0",
+    "y": "3"
+  },
+  {
+    "op": "printCentered",
+    "id": 50,
+    "text": "LoRa RX",
+    "width": 42
+  },
+  {
+    "op": "setCursor",
+    "id": 6,
+    "x": "0",
+    "y": "15"
+  },
+  {
+    "op": "printCentered",
+    "id": 8,
+    "text": "Package Info",
+    "width": 72
+  },
+  {
+    "op": "setCursor",
+    "id": 9,
+    "x": "3",
+    "y": "28"
+  },
+  {
+    "op": "print",
+    "id": 10,
+    "text": "Sender:"
+  },
+  {
+    "op": "setCursor",
+    "id": 11,
+    "x": "45",
+    "y": "28"
+  },
+  {
+    "op": "print",
+    "id": 12,
+    "text": "Sender ID"
+  },
+  {
+    "op": "setCursor",
+    "id": 13,
+    "x": "3",
+    "y": "40"
+  },
+  {
+    "op": "print",
+    "id": 14,
+    "text": "Data:"
+  },
+  {
+    "op": "setCursor",
+    "id": 15,
+    "x": "33",
+    "y": "40"
+  },
+  {
+    "op": "print",
+    "id": 16,
+    "text": "Data recived"
+  },
+  {
+    "op": "setCursor",
+    "id": 6,
+    "x": "3",
+    "y": "52"
+  },
+  {
+    "op": "print",
+    "id": 7,
+    "text": "RSSI:"
+  },
+  {
+    "op": "setCursor",
+    "id": 8,
+    "x": "33",
+    "y": "52"
+  },
+  {
+    "op": "print",
+    "id": 9,
+    "text": "RSSI Value"
+  }
+]

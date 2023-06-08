@@ -1,0 +1,159 @@
+[
+  {
+    "op": "drawRect",
+    "id": 15,
+    "x": "0",
+    "y": "0",
+    "w": "128",
+    "h": "64",
+    "color": "1"
+  },
+  {
+    "op": "setCursor",
+    "id": 16,
+    "x": "0",
+    "y": "2"
+  },
+  {
+    "op": "printCentered",
+    "id": 17,
+    "text": "LoRa TX",
+    "width": 42
+  },
+  {
+    "op": "drawLine",
+    "id": 18,
+    "x0": "0",
+    "y0": "10",
+    "x1": "128",
+    "y1": "10",
+    "color": "1"
+  },
+  {
+    "op": "setCursor",
+    "id": 19,
+    "x": "3",
+    "y": "12"
+  },
+  {
+    "op": "print",
+    "id": 20,
+    "text": "LoRa:Ok"
+  },
+  {
+    "op": "drawLine",
+    "id": 21,
+    "x0": "0",
+    "y0": "20",
+    "x1": "128",
+    "y1": "20",
+    "color": "1"
+  },
+  {
+    "op": "drawLine",
+    "id": 26,
+    "x0": "46",
+    "y0": "20",
+    "x1": "46",
+    "y1": "10",
+    "color": "1"
+  },
+  {
+    "op": "setCursor",
+    "id": 27,
+    "x": "50",
+    "y": "12"
+  },
+  {
+    "op": "print",
+    "id": 28,
+    "text": "Node ID"
+  },
+  {
+    "op": "drawLine",
+    "id": 29,
+    "x0": "0",
+    "y0": "30",
+    "x1": "128",
+    "y1": "30",
+    "color": "1"
+  },
+  {
+    "op": "setCursor",
+    "id": 30,
+    "x": "0",
+    "y": "22"
+  },
+  {
+    "op": "printCentered",
+    "id": 31,
+    "text": "Data sent",
+    "width": 54
+  },
+  {
+    "op": "setCursor",
+    "id": 32,
+    "x": "3",
+    "y": "33"
+  },
+  {
+    "op": "print",
+    "id": 33,
+    "text": "v1="
+  },
+  {
+    "op": "setCursor",
+    "id": 34,
+    "x": "21",
+    "y": "33"
+  },
+  {
+    "op": "print",
+    "id": 35,
+    "text": "100"
+  },
+  {
+    "op": "setCursor",
+    "id": 36,
+    "x": "45",
+    "y": "33"
+  },
+  {
+    "op": "print",
+    "id": 37,
+    "text": "v2="
+  },
+  {
+    "op": "setCursor",
+    "id": 38,
+    "x": "63",
+    "y": "33"
+  },
+  {
+    "op": "println",
+    "id": 39,
+    "text": "100"
+  },
+  {
+    "op": "setCursor",
+    "id": 40,
+    "x": "86",
+    "y": "33"
+  },
+  {
+    "op": "print",
+    "id": 41,
+    "text": "v3="
+  },
+  {
+    "op": "setCursor",
+    "id": 42,
+    "x": "104",
+    "y": "33"
+  },
+  {
+    "op": "println",
+    "id": 43,
+    "text": "100"
+  }
+]
