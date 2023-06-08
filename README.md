@@ -1,4 +1,4 @@
-# ESP32 LoRa TX/RX
+# Simple ESP32 LoRa TX/RX
 ## IDE
 * [PlatformIO IDE](https://platformio.org/platformio-ide)
 ## Librerías
