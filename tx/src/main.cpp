@@ -65,18 +65,18 @@ void loop() {
 
   LoRa.beginPacket();
   LoRa.print(txID);
-  LoRa.print("|");
+  LoRa.print(",");
   LoRa.print(v1);
-  LoRa.print("|");
+  LoRa.print(",");
   LoRa.print(v2);
-  LoRa.print("|");
+  LoRa.print(",");
   LoRa.print(v3);
-  LoRa.print("|");
+  LoRa.print(",");
   LoRa.endPacket();
 
   renderDisplay(txID, v1, v2, v3);
 
-  delay(1000);
+  delay(5000);
 }
 
 // Inicialización del display
