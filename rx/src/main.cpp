@@ -39,6 +39,7 @@
 // Declaración de funciones
 void initDisplay();
 void initLoRa();
+void onReceive(int packetSize);
 void renderDisplay(String txID, String data, int rssi);
 
 // Display setup
@@ -48,30 +49,12 @@ Adafruit_SSD1306 display(OLED_WIDTH, OLED_HEIGHT, &Wire, -1);
 void setup() {
   Serial.begin(115200);
   initDisplay();
-  initLoRa(); 
+  initLoRa();
 }
 
+// Loop
 void loop() {
-  String txID = "";
-  int value_1, value_2, value_3;
-  int rssi;
-  int packetSize = LoRa.parsePacket();
-  if(packetSize){
-    while (LoRa.available()) {
-      txID = LoRa.readStringUntil('|');
-      value_1 = (LoRa.readStringUntil('|')).toInt();
-      value_2 = (LoRa.readStringUntil('|')).toInt();
-      value_3 = (LoRa.readStringUntil('|')).toInt();
-    }
-    rssi = LoRa.packetRssi();
-    // Temporary display fix
-    String data = "";
-    String m1 = String(value_1);
-    String m2 = String(value_2);
-    String m3 = String(value_3);
-    data = m1 + " " + m2 + " " + m3;
-    renderDisplay(txID, data, rssi);
-  }
+  onReceive(LoRa.parsePacket());
 }
 
 // Inicialización del display
@@ -85,7 +68,6 @@ void initDisplay(){
   display.setTextColor(WHITE);
   display.setTextSize(1);
   Serial.println("Display: Ok");
-  delay(1000);
 }
 
 // Inicialización del módulo LoRa
@@ -98,7 +80,26 @@ void initLoRa(){
   }else{
     Serial.println("LoRa: Ok");
   }
-  delay(1000);
+}
+
+// Callback para el manejo de paquetes recibidos
+void onReceive(int packetSize){
+  String txID = "";
+  int value_1, value_2, value_3;
+  int rssi;
+  if(packetSize){
+    while (LoRa.available()) {
+      txID = LoRa.readStringUntil(',');
+      value_1 = (LoRa.readStringUntil(',')).toInt();
+      value_2 = (LoRa.readStringUntil(',')).toInt();
+      value_3 = (LoRa.readStringUntil(',')).toInt();
+    }
+    rssi = LoRa.packetRssi();
+    String data = String(value_1) + " " + String(value_2) + " " + String(value_3);
+    renderDisplay(txID, data, rssi);
+    Serial.println("Data received from: " + txID);
+    Serial.println("Data: " + data);
+  }
 }
 
 // Display Render
