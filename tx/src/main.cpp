@@ -39,6 +39,7 @@
 // Declaración de funciones
 void initDisplay();
 void initLoRa();
+void sendPackage();
 void renderDisplay(String txID, int v1, int v2, int v3);
 
 // Display setup
@@ -57,7 +58,37 @@ void setup() {
   initLoRa();
 }
 
+// Loop
 void loop() {
+  sendPackage();
+  delay(5000);
+}
+
+// Inicialización del display
+void initDisplay(){
+  Wire.begin(OLED_SDA, OLED_SCL);
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3c, false, false)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for(;;);
+  }
+  display.clearDisplay();
+  display.setTextColor(WHITE);
+  display.setTextSize(1);
+  Serial.println("Display: Ok");
+}
+
+// Inicialización del módulo LoRa
+void initLoRa(){
+  SPI.begin(SCK, MISO, MOSI, SS);
+  LoRa.setPins(SS, RST, DIO0);
+  if(!LoRa.begin(BAND)){
+    Serial.println("LoRa: Failed");
+  }else{
+    Serial.println("LoRa: Ok");
+  }
+}
+
+void sendPackage(){
   esp_random();
   v1 = random(1, 101);
   v2 = random(1, 101);
@@ -75,34 +106,6 @@ void loop() {
   LoRa.endPacket();
 
   renderDisplay(txID, v1, v2, v3);
-
-  delay(5000);
-}
-
-// Inicialización del display
-void initDisplay(){
-  Wire.begin(OLED_SDA, OLED_SCL);
-  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3c, false, false)) {
-    Serial.println(F("SSD1306 allocation failed"));
-    for(;;);
-  }
-  display.clearDisplay();
-  display.setTextColor(WHITE);
-  display.setTextSize(1);
-  Serial.println("Display: Ok");
-  delay(1000);
-}
-
-// Inicialización del módulo LoRa
-void initLoRa(){
-  SPI.begin(SCK, MISO, MOSI, SS);
-  LoRa.setPins(SS, RST, DIO0);
-  if(!LoRa.begin(BAND)){
-    Serial.println("LoRa: Failed");
-  }else{
-    Serial.println("LoRa: Ok");
-  }
-  delay(1000);
 }
 
 // Display render
