@@ -61,13 +61,13 @@ void loop() {
 void initDisplay(){
   Wire.begin(OLED_SDA, OLED_SCL);
   if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3c, false, false)) {
-    Serial.println(F("SSD1306 allocation failed"));
+    Serial.println("Fallo al inicializar el display");
     for(;;);
   }
   display.clearDisplay();
   display.setTextColor(WHITE);
   display.setTextSize(1);
-  Serial.println("Display: Ok");
+  Serial.println("Display inicializado correctamente");
 }
 
 // Inicialización del módulo LoRa
@@ -76,9 +76,9 @@ void initLoRa(){
   LoRa.setPins(SS, RST, DIO0);
   display.setCursor(0, 30);
   if(!LoRa.begin(BAND)){
-    Serial.println("LoRa: Failed");
+    Serial.println("Fallo al inicializar el módulo LoRa");
   }else{
-    Serial.println("LoRa: Ok");
+    Serial.println("Módulo LoRa inicializado correctamente");
   }
 }
 
@@ -97,8 +97,8 @@ void onReceive(int packetSize){
     rssi = LoRa.packetRssi();
     String data = String(value_1) + " " + String(value_2) + " " + String(value_3);
     renderDisplay(txID, data, rssi);
-    Serial.println("Data received from: " + txID);
-    Serial.println("Data: " + data);
+    Serial.println("Datos recibidos de: " + txID);
+    Serial.println("Datos: " + data);
   }
 }
 
